@@ -10,7 +10,8 @@ npm run dev
 
 ## Inspiration
 Our motivation for this project arises from personal challenges we faced as high schoolers in finding volunteer opportunities and seeking exposure to extracurricular activities that would enhance our college applications. We recognized the need for a platform that would streamline the process of connecting high schoolers and volunteers with organizations that require their services. Through this platform, we aim to facilitate greater engagement and participation in community-based initiatives, ultimately fostering a more socially conscious and civically engaged society.
-*Note: VolunteerHub was made for Hack: Cupertino, in just 24 hours.*
+
+### Note: VolunteerHub was made for Hack: Cupertino, in just 24 hours.
 
 ## What it does
 Our product creates a centralized platform that facilitates this matchmaking process between volunteer orginization and volunteers. We aim to streamline the volunteer recruitment process and promote greater participation in community-based initiatives. It promotes a like feature that allows the user to choose which volunteer group/event they want to join based on community involvement and interest. We also include a search bar that allows the user to search for any volunteer event with key words. Ultimately, our initiative seeks to foster a more socially conscious and civically engaged society in Cupertino.
