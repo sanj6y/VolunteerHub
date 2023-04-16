@@ -3,9 +3,9 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "./LoginPage.module.css";
+import styles from "./CreateAccount.module.css";
 
-const LoginPage = () => {
+const CreateAccount = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -91,4 +91,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default CreateAccount;
