@@ -5,6 +5,7 @@ import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./CreateAccount.module.css";
 import { Link } from "react-router-dom";
+import {register} from "../backend/firebase_config";
 
 const CreateAccount = () => {
   const [formData, setFormData] = useState({
@@ -85,8 +86,9 @@ const CreateAccount = () => {
           />
         </Form.Group>
 
-        <Button className={styles.submitButton} variant="primary" type="submit">
+        <Button className={styles.submitButton} variant="primary" onClick = { () => register(formData.name, formData.email, formData.password)} type="submit">
           Submit
+          
         </Button>
       </Form>
       <Link to="/">Already have an account? Login here!</Link>

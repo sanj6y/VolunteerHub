@@ -5,6 +5,7 @@ import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
+import {login} from "../backend/firebase_config";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +54,7 @@ const Login = () => {
           />
         </Form.Group>
 
-        <Button className={styles.submitButton} variant="primary" type="submit">
+        <Button className={styles.submitButton} variant="primary" onClick = { () => login(formData.email, formData.password)} type="submit">
           Submit
         </Button>
       </Form>
