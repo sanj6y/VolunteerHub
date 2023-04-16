@@ -1,0 +1,23 @@
+/* src/components/LoginPage.module.css */
+
+.container {
+    margin-top: 50px;
+  }
+  
+  .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    border-radius: 20px;
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+  
+  .submit-button {
+    border-radius: 20px;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  

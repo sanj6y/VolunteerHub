@@ -1,8 +1,9 @@
 // src/components/LoginPage.js
 
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -23,14 +24,15 @@ const LoginPage = () => {
   };
 
   return (
-    <Container>
+    <Container className={styles.container}>
       <Row>
         <Col md={{ span: 6, offset: 3 }}>
           <h2 className="text-center my-4">Login</h2>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
+              <Form.Label className={styles.title}>Name</Form.Label>
               <Form.Control
+                className={styles.formControl}
                 type="text"
                 name="name"
                 value={formData.name}
@@ -40,8 +42,9 @@ const LoginPage = () => {
             </Form.Group>
 
             <Form.Group controlId="email">
-              <Form.Label>Email</Form.Label>
+              <Form.Label className={styles.title}>Email</Form.Label>
               <Form.Control
+                className={styles.formControl}
                 type="email"
                 name="email"
                 value={formData.email}
@@ -51,8 +54,9 @@ const LoginPage = () => {
             </Form.Group>
 
             <Form.Group controlId="phone">
-              <Form.Label>Phone #</Form.Label>
+              <Form.Label className={styles.title}>Phone #</Form.Label>
               <Form.Control
+                className={styles.formControl}
                 type="tel"
                 name="phone"
                 value={formData.phone}
@@ -62,8 +66,9 @@ const LoginPage = () => {
             </Form.Group>
 
             <Form.Group controlId="zipCode">
-              <Form.Label>Zip Code</Form.Label>
+              <Form.Label className={styles.title}>Zip Code</Form.Label>
               <Form.Control
+                className={styles.formControl}
                 type="text"
                 name="zipCode"
                 value={formData.zipCode}
@@ -72,7 +77,11 @@ const LoginPage = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button
+              className={styles.submitButton}
+              variant="primary"
+              type="submit"
+            >
               Submit
             </Button>
           </Form>
