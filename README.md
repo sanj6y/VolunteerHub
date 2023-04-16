@@ -1,8 +1,12 @@
 ## Try VolunteerHub!
 1. Clone the repository by typing the following command into your terminal:
-```git clone https://github.com/SidKalje/VolunteerHub```
+```
+git clone https://github.com/SidKalje/VolunteerHub
+```
 2. Navigate to the _VolunteerHub_ folder on your machine and run the following command in your terminal to run _VolunteerHub_.
-```npm run dev```
+```
+npm run dev
+```
 
 ## Inspiration
 Our motivation for this project arises from personal challenges we faced as high schoolers in finding volunteer opportunities and seeking exposure to extracurricular activities that would enhance our college applications. We recognized the need for a platform that would streamline the process of connecting high schoolers and volunteers with organizations that require their services. Through this platform, we aim to facilitate greater engagement and participation in community-based initiatives, ultimately fostering a more socially conscious and civically engaged society.
