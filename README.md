@@ -3,7 +3,7 @@
 ```
 git clone https://github.com/SidKalje/VolunteerHub
 ```
-2. Navigate to the _VolunteerHub_ folder on your machine and run the following command in your terminal to run _VolunteerHub_.
+2. Navigate to the VolunteerHub folder on your machine and run the following command in your terminal to run VolunteerHub.
 ```
 npm run dev
 ```
