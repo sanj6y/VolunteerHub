@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import {addDoc, collection} from "firebase/firestore";
+import {db} from "../backend/firebase_config";
 // src/components/EventForm.js
 
 import React, { ChangeEvent, useState } from "react";
@@ -17,24 +19,45 @@ const EventForm = () => {
   const [isOnline, setIsOnline] = useState(false);
   const [isInPerson, setIsInPerson] = useState(false);
   const [address, setAddress] = useState("");
-
+  const [numLikes, setNumLikes] = useState(0);
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    let info = {
+      name: eventName,
+      date: eventDate,
+      start: startTime,
+      end: endTime,
+      description: description,
+      cert: certified,
+      online: isOnline,
+      inperson: isInPerson,
+      addy: address,
+      numLikes: numLikes
+    }
+    addDoc(collection(db, 'events'), info)
+  }
     // Process form data
     // send form data to backend firebase
-  };
 
-  const handleOnlineChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsOnline(e.target.checked);
-  };
+    const handleEventNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setEventName(e.target.value);
 
-  const handleInPersonChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsInPerson(e.target.checked);
-  };
+    };
 
-  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAddress(e.target.value);
-  };
+    const handleOnlineChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setIsOnline(e.target.checked);
+  
+
+    };
+
+    const handleInPersonChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setIsInPerson(e.target.checked);
+
+    };
+  
+
+
+
   return (
     <Form className="createEventForm" onSubmit={handleSubmit}>
       <FormGroup>
@@ -103,7 +126,9 @@ const EventForm = () => {
               type="checkbox"
               id="online"
               checked={isOnline}
-              onChange={handleOnlineChange}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setIsOnline(e.target.checked)
+              }
             />
             <label htmlFor="online">Online</label>
           </div>
@@ -112,7 +137,9 @@ const EventForm = () => {
               type="checkbox"
               id="in-person"
               checked={isInPerson}
-              onChange={handleInPersonChange}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setIsInPerson(e.target.checked)
+              }
             />
             <label htmlFor="in-person">In-person</label>
           </div>
@@ -123,7 +150,9 @@ const EventForm = () => {
                 type="text"
                 id="address"
                 value={address}
-                onChange={handleAddressChange}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setAddress(e.target.value)
+                }
               />
             </div>
           )}
