@@ -20,6 +20,7 @@ const EventForm = () => {
   const [isInPerson, setIsInPerson] = useState(false);
   const [address, setAddress] = useState("");
   const [numLikes, setNumLikes] = useState(0);
+
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     let info = {
@@ -58,6 +59,9 @@ const EventForm = () => {
 
 
 
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAddress(e.target.value);
+  };
   return (
     <Form className="createEventForm" onSubmit={handleSubmit}>
       <FormGroup>
@@ -145,14 +149,12 @@ const EventForm = () => {
           </div>
           {isInPerson && (
             <div>
-              <label htmlFor="address">Address:</label>
+              <label htmlFor="zipCode">address:</label>
               <input
                 type="text"
                 id="address"
                 value={address}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  setAddress(e.target.value)
-                }
+                onChange={handleAddressChange}
               />
             </div>
           )}
