@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import React, { ChangeEvent, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const EventForm = () => {
@@ -12,8 +13,10 @@ const EventForm = () => {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [description, setDescription] = useState("");
-  const [location, setLocation] = useState("");
   const [certified, setCertified] = useState(false);
+  const [isOnline, setIsOnline] = useState(false);
+  const [isInPerson, setIsInPerson] = useState(false);
+  const [address, setAddress] = useState("");
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -21,8 +24,19 @@ const EventForm = () => {
     // send form data to backend firebase
   };
 
+  const handleOnlineChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsOnline(e.target.checked);
+  };
+
+  const handleInPersonChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsInPerson(e.target.checked);
+  };
+
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAddress(e.target.value);
+  };
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form className="createEventForm" onSubmit={handleSubmit}>
       <FormGroup>
         <Label for="eventName">Event Name</Label>
         <Input
@@ -83,17 +97,37 @@ const EventForm = () => {
         />
       </FormGroup>
       <FormGroup>
-        <Label for="location">Location</Label>
-        <Input
-          type="text"
-          name="location"
-          id="location"
-          placeholder="Enter event location"
-          value={location}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setLocation(e.target.value)
-          }
-        />
+        <div className="checkboxes">
+          <div>
+            <input
+              type="checkbox"
+              id="online"
+              checked={isOnline}
+              onChange={handleOnlineChange}
+            />
+            <label htmlFor="online">Online</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="in-person"
+              checked={isInPerson}
+              onChange={handleInPersonChange}
+            />
+            <label htmlFor="in-person">In-person</label>
+          </div>
+          {isInPerson && (
+            <div>
+              <label htmlFor="address">Address:</label>
+              <input
+                type="text"
+                id="address"
+                value={address}
+                onChange={handleAddressChange}
+              />
+            </div>
+          )}
+        </div>
       </FormGroup>
       <FormGroup check>
         <Label check>
