@@ -7,9 +7,11 @@ const NavBar = () => {
     <>
       <Container className={styles.container}>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-          <Link className="navbar-brand" to="/">
-            Navbar
-          </Link>
+          <div className="navbar-brand-placement">
+            <Link className="navbar-brand" to="/">
+              VolunteerHub
+            </Link>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
