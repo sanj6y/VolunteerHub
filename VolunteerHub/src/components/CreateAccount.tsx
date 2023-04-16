@@ -4,6 +4,7 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./CreateAccount.module.css";
+import { Link } from "react-router-dom";
 
 const CreateAccount = () => {
   const [formData, setFormData] = useState({
@@ -88,6 +89,7 @@ const CreateAccount = () => {
           Submit
         </Button>
       </Form>
+      <Link to="/">Already have an account? Login here!</Link>
     </Container>
   );
 };
