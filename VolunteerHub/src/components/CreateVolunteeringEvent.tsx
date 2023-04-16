@@ -16,7 +16,7 @@ const EventForm = () => {
   const [certified, setCertified] = useState(false);
   const [isOnline, setIsOnline] = useState(false);
   const [isInPerson, setIsInPerson] = useState(false);
-  const [zipCode, setzipCode] = useState("");
+  const [address, setaddress] = useState("");
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -32,8 +32,8 @@ const EventForm = () => {
     setIsInPerson(e.target.checked);
   };
 
-  const handlezipCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setzipCode(e.target.value);
+  const handleaddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setaddress(e.target.value);
   };
   return (
     <Form className="createEventForm" onSubmit={handleSubmit}>
@@ -118,12 +118,12 @@ const EventForm = () => {
           </div>
           {isInPerson && (
             <div>
-              <label htmlFor="zipCode">zipCode:</label>
+              <label htmlFor="address">address:</label>
               <input
                 type="text"
-                id="zipCode"
-                value={zipCode}
-                onChange={handlezipCodeChange}
+                id="address"
+                value={address}
+                onChange={handleaddressChange}
               />
             </div>
           )}
