@@ -18,6 +18,7 @@ const EventForm = () => {
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // Process form data
+    // send form data to backend firebase
   };
 
   return (
