@@ -2,15 +2,18 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import CreateAccount from "./components/CreateAccount";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
+import CreateAccount from "./components/CreateAccount";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/Create-Account" element={<CreateAccount />} />
+      </Routes>
+    </Router>
   );
-}
-
+};
 export default App;

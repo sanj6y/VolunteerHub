@@ -4,6 +4,7 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Login.module.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -26,44 +27,37 @@ const Login = () => {
 
   return (
     <Container className={styles.container}>
-      <Row>
-        <Col md={{ span: 6, offset: 3 }}>
-          <h2 className="text-center my-4">Login</h2>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="email">
-              <Form.Label className={styles.title}>Email</Form.Label>
-              <Form.Control
-                className={styles.formControl}
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+      <h2 className="text-center my-4">Login</h2>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="email">
+          <Form.Label className={styles.title}>Email</Form.Label>
+          <Form.Control
+            className={styles.formControl}
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-            <Form.Group controlId="password">
-              <Form.Label className={styles.title}>Password</Form.Label>
-              <Form.Control
-                className={styles.formControl}
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+        <Form.Group controlId="password">
+          <Form.Label className={styles.title}>Password</Form.Label>
+          <Form.Control
+            className={styles.formControl}
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-            <Button
-              className={styles.submitButton}
-              variant="primary"
-              type="submit"
-            >
-              Submit
-            </Button>
-          </Form>
-        </Col>
-      </Row>
+        <Button className={styles.submitButton} variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+      <Link to="/Create-Account">Don't have an account? Create one here!</Link>
     </Container>
   );
 };
